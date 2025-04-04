@@ -9,6 +9,8 @@ import Image from "next/image";
 import Script from "next/script";
 
 
+
+
 export default async function Home() {
   return (
       <>
@@ -21,13 +23,14 @@ export default async function Home() {
             </div>
             <div className="center-nav">
               <ul>
-                <li>NEW RELEASES</li>
-                <li>MEN</li>
-                <li>WOMEN</li>
-                <li>KIDS</li>
-                <li>CUSTOMIZE</li>
-                <a href="/Koszyk" className="z-50">Koszyk</a>
-                <a href="/Listaproduktow" className="z-50">Listaproduktow</a>
+                <li><a href="#">NEW RELEASES</a></li>
+                <li><a href="#">MEN</a></li>
+                <li><a href="#">WOMEN</a></li>
+                <li><a href="#">KIDS</a></li>
+                <li><a href="#">CUSTOMIZE</a> </li>
+                <li><a href="/Koszyk">Koszyk</a></li>
+                <li><a href="/Listaproduktow" >Listaproduktow</a></li>
+
               </ul>
             </div>
             <div className="user-container">
@@ -119,6 +122,23 @@ export default async function Home() {
             </div>
           </div>
         </div>
+        <div className="text-4xl text-black p-6 space-x-4">
+          da
+          <i className="bx bx-user"></i>
+          <i className="bx bxs-heart"></i>
+          <i className="bx bxl-instagram"></i>
+        </div>
+        <i className="fa-solid fa-heart"></i>
+        <i className="fa-solid fa-heart"></i>
+        <i className="fa-solid fa-heart"></i>
+        <i className="fa-solid fa-heart"></i>
+        <div>
+          <i className="bx bx-heart" style={{ fontSize: '48px', color: 'red' }}></i>
+          <i className="bx bx-log-in" style={{ fontSize: '48px', color: 'blue' }}></i>
+          <i className="bx bx-help-circle" style={{ fontSize: '48px', color: 'green' }}></i>
+        </div>
+
+
 
 
       </>
