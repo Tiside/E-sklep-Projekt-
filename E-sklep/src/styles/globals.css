@@ -94,6 +94,7 @@ a{
     height: 1000px;
     background-color: var(--red);
     position: relative;
+
 }
 
 .header::before {
@@ -110,6 +111,7 @@ a{
     justify-content: space-around;
     align-items: center;
     height: 100px;
+    padding-top: 30px;
 
 }
 
@@ -122,7 +124,7 @@ a{
 }
 
 .header .nav .logo img {
-    width: 120px;
+    width: 140px;
     height: auto;
     object-fit: cover;
     object-position: center;
@@ -222,7 +224,7 @@ a{
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.808);
 }
 
-.user-pfp i{
+.user-pfp svg{
     color: white;
     position: absolute;
     left: 50%;
@@ -233,7 +235,7 @@ a{
     transition: transform 0.5s ease, color 0.5s ease, opacity 0.5s ease, z-index 0.5s ease, scale 0.5s ease;
 }
 
-.user-pfp i:hover{
+.user-pfp svg:hover{
     color: gray;
     scale: 1.09;
     cursor: pointer;
@@ -273,15 +275,18 @@ a{
     width: 5%;
 }
 
-.side-bar i{
+.side-bar img{
     margin-bottom: 10px;
     font-size: 25px;
+    width: 35px;
+    height: auto;
+    color: white;
     cursor: pointer;
     color: white;
     transition: scale 0.5s ease;
 }
 
-.side-bar i:hover{
+.side-bar img:hover{
     scale: 1.2;
 }
 
@@ -322,7 +327,7 @@ a{
     display: flex;
     column-gap: 15px;
     flex-wrap: wrap;
-    width: 60%;
+    width: 40%;
 }
 .about .size .sizes .size-number{
     border: 1px solid var(--primary-color);
@@ -345,6 +350,7 @@ a{
 .color h5{
     color: var(--primary-color);
     margin-left: 5%;
+    margin-bottom: 20px;
 }
 
 .color .colors{
@@ -396,7 +402,8 @@ a{
 
 
 .nike-text {
-    font-size: 25rem;
+    font-size: 30rem;
+    font-weight: lighter;
     color: var(--primary-color);
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -406,7 +413,7 @@ a{
 }
 
 .content img {
-    width: 650px;
+    width: 750px;
     object-fit: cover;
     object-position: center;
     height: auto;
@@ -444,7 +451,7 @@ a{
     background-color: var(--transaperecy);
     z-index: 1000;
 }
-.video button i{
+.video button svg{
     font-size: 20px;
 }
 
@@ -492,6 +499,28 @@ a{
     transform: scale(1.1);
     background-color: var(--transaperecy);
     cursor: pointer;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
 }
 
 
