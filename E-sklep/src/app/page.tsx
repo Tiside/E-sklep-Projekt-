@@ -52,7 +52,7 @@ export default async function Home() {
                 <li><a href="#">WOMEN</a></li>
                 <li><a href="#">KIDS</a></li>
                 <li><a href="#">CUSTOMIZE</a></li>
-                <li><a href="/Login/page">CART</a></li>
+                <li><a href="/Koszyk">CART</a></li>
                 <li><a href="/Listaproduktow">PRODUCT LIST</a></li>
               </ul>
             </div>

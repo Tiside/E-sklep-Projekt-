@@ -67,7 +67,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(20deg);
-    width: 270px;
+    width: 300px;
+    height: auto;
 }
 
 .container .card .contentBx {
