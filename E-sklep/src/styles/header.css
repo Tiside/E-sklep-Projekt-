@@ -1,0 +1,321 @@
+
+@tailwind utilities;
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+i.bx, i.bxs, i.bxl {
+
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+@font-face {
+    font-family: 'Anton';
+    src: url('/fonts/Anton-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+:root{
+    --primary-color: #f5f5f5;
+    --crimson: 	#DC143C;
+    --red: #DC3545;
+    --indianred: #CD5C5C;
+    --blue-color: #0000FF;
+    --green-color: 	#00FA9A;
+    --black: #000000;
+    --light-silver: #C0C0C0;
+    --box-shadow-black: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    --transaperecy: rgba(0, 0, 0, 0.2);
+    --gray-transaperecy: rgb(146 151 179 / 13%);
+}
+
+a{
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: white;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    animation: fadeIn 0.4s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6)
+}
+
+.search-bar-expanded {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    width: 600px;
+    max-width: 90%;
+}
+
+.search-bar-expanded input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background: transparent;
+    padding: 5px;
+}
+
+.search-bar-expanded svg {
+    width: 24px;
+    height: 24px;
+    color: black;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.search-bar-expanded svg:hover {
+    color: var(--red);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.search{
+    color: var(--primary-color);
+    border: 1px solid var(--light-silver);
+    border-radius: 100%;
+    padding: 5px 5px;
+    cursor: pointer;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.search:hover{
+    transform: scale(1.1);
+    box-shadow: var(--box-shadow-black);
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 10px 0;
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 8px 16px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    width: 320px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    padding: 5px;
+}
+
+.search-bar .search-icon {
+    width: 24px;
+    height: 24px;
+    color: gray;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.search-bar:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.search-bar input:focus + .search-icon,
+.search-bar:hover .search-icon {
+    color: black;
+}
+
+
+.nav{
+    align-items: center;
+    background-color: var(--red);
+}
+
+.nav-content{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+
+.nav .logo {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.nav .logo img {
+    width: 140px;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.nav .center-nav ul{
+    list-style-type: none;
+    display: flex;
+    column-gap: 50px;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.nav .center-nav ul li{
+    color: var(--primary-color);
+    position: relative;
+    z-index: 1000;
+    transition: color 0.5s ease;
+}
+
+.nav .center-nav ul li:hover{
+    color: var(--black);
+    cursor: pointer;
+}
+
+.nav .center-nav ul li:hover {
+    color: var(--black);
+}
+
+.user-container{
+    display: flex;
+    align-items: center;
+    grid-gap: 25px;
+}
+
+.like-content{
+    position: relative;
+
+}
+.user-container .bx-heart{
+    font-size: 30px;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.user-container .bx-heart:hover{
+    color: black;
+}
+
+.user-container .like-number{
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    background-color:#1E90FF;
+    border-radius: 50%;
+    color: white;
+    padding: 5px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* .user-container .bx-heart::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0000FF;
+
+
+} */
+
+.user-pfp {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transition: box-shadow 0.5s ease;
+}
+
+.user-pfp:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.808);
+}
+
+.user-pfp.active {
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.808);
+}
+
+.user-pfp svg{
+    color: white;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    font-size: 18px;
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.5s ease, color 0.5s ease, opacity 0.5s ease, z-index 0.5s ease, scale 0.5s ease;
+}
+
+.user-pfp svg:hover{
+    color: gray;
+    scale: 1.09;
+    cursor: pointer;
+}
+.user-pfp a{
+    text-decoration: none;
+    color: white;
+}
+.user-pfp .bx-log-in.show {
+    transform: translate(25px, -10px);
+    opacity: 1;
+    z-index: 1;
+}
+
+.user-pfp .bx-help-circle.show {
+    transform: translate(45px, 10px);
+    opacity: 1;
+    z-index: 1;
+}
+
+.user-pfp .cart.show {
+    transform: translate(25px, 30px);
+    opacity: 1;
+    z-index: 1;
+}

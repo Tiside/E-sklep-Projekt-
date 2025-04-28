@@ -1,5 +1,4 @@
-import "@/styles/globals.css"
-import "@/styles/globals.css";
+// import "@/styles/globals.css"
 
 
 
@@ -9,6 +8,7 @@ import { type Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/react";
 
 import Script from "next/script";
+import Header from "@/app/_components/Header";
 
 export const metadata: Metadata = {
   title: "ShoeKing",
