@@ -1,0 +1,547 @@
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Anton';
+    src: url('/fonts/Anton-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #f5f5f5;
+    --crimson: #DC143C;
+    --red: #DC3545;
+    --black: #000000;
+    --light-silver: #C0C0C0;
+    --box-shadow-black: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    --transaperecy: rgba(0, 0, 0, 0.2);
+    --gray-transaperecy: rgb(146 151 179 / 13%);
+}
+
+.cart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.cart-container .cart-content {
+    width: 60%;
+}
+
+.cart-container .cart-content .cart-main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 40px;
+}
+.all-likes{
+    color: var(--black);
+    font-weight: 550;
+    border-bottom: 1px solid var(--black);
+    width: fit-content;
+    cursor: pointer;
+}
+
+.cart-like {
+    margin-top: 30px;
+}
+
+.cart-container .cart-content .cart-items,
+.cart-like .like-item-main {
+    width: 60%;
+}
+
+.cart-container .cart-content .cart-items .cart-item,
+.cart-like .like-item-main .like-item {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cart-container .cart-content .cart-items .image-item,
+.cart-like .like-item-main .like-item .image-item {
+    margin-right: 15px;
+}
+
+.cart-container .cart-content .cart-items .cart-item img,
+.cart-like .like-item-main .like-item img {
+    width: 220px;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+
+.cart-container .cart-content .cart-items .cart-item h3,
+.cart-like .like-item-main .like-item h3 {
+    margin-bottom: 5px;
+    font-weight: 550;
+    font-size: 20px;
+}
+
+.cart-container .cart-content .cart-items .cart-item p,
+.cart-like .like-item-main .like-item p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 540;
+    color: rgb(124, 123, 123);
+}
+
+.cart-container .cart-content .cart-items .cart-item .to-change-size, .to-change-color {
+    color: gray;
+    border-bottom: 1px solid var(--light-silver);
+    cursor: pointer;
+}
+.cart-like .like-item-main .like-item .to-change-size, .to-change-color{
+    color: gray;
+    border-bottom: 1px solid var(--light-silver);
+    cursor: pointer;
+}
+
+.cart-container .cart-content .cart-items .cart-item .price,
+.cart-like .like-item-main .like-item .price {
+    margin-left: auto;
+}
+
+.cart-container .cart-content .cart-items .cart-item .price p,
+.cart-like .like-item-main .like-item .price p {
+    color: var(--black);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.cart-container .cart-content .cart-item-main .item-count,
+.cart-like .like-item-main .item-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    border: 1px solid var(--light-silver);
+    border-radius: 20px;
+    width: 15%;
+    margin-bottom: 20px;
+}
+
+.cart-container .cart-content .cart-item-main .item-count svg,
+.cart-like .like-item-main .item-count svg {
+    width: 22px;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.cart-container .cart-content .cart-item-main .item-count svg:hover,
+.cart-like .like-item-main .item-count svg:hover {
+    border-radius: 50%;
+    background-color: var(--light-silver);
+    border-radius: 50%;
+    background-color: var(--light-silver);
+}
+
+.cart-container .cart-items hr {
+    height: 1px;
+    border: none;
+    background: var(--light-silver);
+}
+
+.cart-container .add-cart-item {
+    padding: 10px 16px;
+    color: var(--black);
+    border: 1px solid var(--light-silver);
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    margin-top: 10px;
+}
+
+.cart-container .add-cart-item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3)
+}
+
+.cart-summary {
+    margin-right: auto;
+    width: 30%;
+}
+
+.cart-summary hr {
+    height: 1px;
+    border: none;
+    background: var(--light-silver);
+}
+
+.cart-summary h2 {
+    margin-bottom: 20px;
+}
+
+.sumary-promo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.sumary-promo .arrow {
+    transition: transform 0.3s ease;
+}
+
+.sumary-promo.open .arrow {
+    transform: rotate(180deg);
+}
+
+.promo-field {
+    display: none;
+    margin-top: 10px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.promo-field input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--light-silver);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.promo-use {
+    background-color: black;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.promo-use:hover {
+    background-color: #333;
+}
+
+
+
+.sumary-promo,
+.sub-total,
+.shipping,
+.tax {
+    color: var(--black);
+    font-weight: 550;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--black);
+    font-weight: 550;
+}
+
+.sumary-promo svg {
+    width: 20px;
+}
+
+.free-shipping-text {
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.shipping-progress {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.shipping-bar {
+    width: 90%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.shipping-bar .filled {
+    width: 100%;
+    height: 100%;
+    background-color: #007e33;
+}
+
+.threshold {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #333;
+}
+
+.paypal-btn {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 12px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.paypal-btn img {
+    height: 20px;
+}
+
+.paypal-btn:hover {
+    box-shadow: 0 0 0 2px #003087;
+}
+
+
+.checkout-note {
+    font-size: 12px;
+    color: gray;
+    margin-top: 20px;
+    line-height: 1.4;
+}
+
+.carousel-container {
+    width: 95%;
+    overflow: hidden;
+    padding: 20px;
+
+}
+
+.carousel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.carousel-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.5s ease;
+}
+
+.carousel-item:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.carousel-item img {
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 10px;
+}
+
+.carousel-item p {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.carousel-item span {
+    color: gray;
+    font-size: 13px;
+}
+
+.carousel-btn {
+    background: #f2f2f2;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background: #e0e0e0;
+}
+
+.carousel-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.change-size,
+.change-color {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    padding: 20px 0;
+    display: flex;
+    column-gap: 10px;
+    width: 50%;
+    max-height: 400px;
+    overflow: hidden;
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    z-index: 1000;
+    display: none;
+
+}
+
+.change-size .change-image img,
+.change-color .change-image img {
+    width: 500px;
+}
+
+.change-size .change-info h4,
+h2,
+.change-color .change-info h4,
+h2 {
+    margin-bottom: 5px;
+}
+
+.change-size .change-info h4:last-of-type,
+.change-color .change-info h4:last-of-type {
+    margin-top: 50px;
+}
+
+.change-info {
+    width: 100%;
+}
+
+.change-size .change-info .change-btn,
+.change-color .change-info .change-btn {
+    width: 95%;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.change-size .change-info .change-btn:hover,
+.change-color .change-info .change-btn:hover {
+    background-color: #333;
+}
+
+.change-size .change-info .size-to-change,
+.change-color .change-info .color-to-change {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    row-gap: 5px;
+    overflow: hidden;
+    overflow: scroll;
+    max-height: 45%;
+
+}
+
+.change-size .change-info .size-to-change .size,
+.change-color .change-info .color-to-change .color {
+    border: 1px solid var(--light-silver);
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.change-size .change-info .size-to-change .size:hover,
+.change-color .change-info .color-to-change .color:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.change-size .close,
+.change-color .close {
+    position: absolute;
+    width: 40px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    fill: none;
+    border-radius: 50%;
+}
+
+.change-size .close:hover,
+.change-color .close:hover {
+    fill: var(--light-silver);
+}

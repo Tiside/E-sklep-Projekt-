@@ -9,24 +9,22 @@ import {useEffect, useState} from "react";
 import Footer from "@/app/_components/Footer";
 
 
-
-
-export default function Listaproduktow(){
+export default function Listaproduktow() {
     const produkty = [
         {
-            "id":1,
-            "Marka":'Nike',
-            "src":"/redNIke-removebg-preview.png",
+            "id": 1,
+            "Marka": 'Nike',
+            "src": "/redNIke-removebg-preview.png",
         },
         {
-            "id":2,
-            "Marka":'Nikeamogus',
-            "src":"/redNIke-removebg-preview.png",
+            "id": 2,
+            "Marka": 'Nikeamogus',
+            "src": "/redNIke-removebg-preview.png",
         },
         {
-            "id":3,
-            "Marka":'Nik eAmogus BUt',
-            "src":"/redNIke-removebg-preview.png",
+            "id": 3,
+            "Marka": 'Nik eAmogus BUt',
+            "src": "/redNIke-removebg-preview.png",
         }
     ]
     useEffect(() => {
@@ -85,9 +83,12 @@ export default function Listaproduktow(){
 
         // Очистка событий когда компонент демонтируется (best practice в React)
         return () => {
-            sortToggle?.removeEventListener('click', () => {});
-            lists.forEach(list => list.removeEventListener('click', () => {}));
-            toggleFilters?.removeEventListener('click', () => {});
+            sortToggle?.removeEventListener('click', () => {
+            });
+            lists.forEach(list => list.removeEventListener('click', () => {
+            }));
+            toggleFilters?.removeEventListener('click', () => {
+            });
         };
     }, []);
 
@@ -132,7 +133,8 @@ export default function Listaproduktow(){
 
             <Header/>
             <div className="top-info">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6" onClick={prevText}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6"
+                     onClick={prevText}>
                     <path fillRule="evenodd"
                           d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
                           clipRule="evenodd"/>
@@ -142,7 +144,8 @@ export default function Listaproduktow(){
                     {texts[currentIndex]}
                 </div>
 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6" onClick={nextText}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6"
+                     onClick={nextText}>
                     <path fillRule="evenodd"
                           d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
                           clipRule="evenodd"/>
@@ -647,7 +650,7 @@ export default function Listaproduktow(){
                 </div>
 
             </div>
-            <Footer />
+            <Footer/>
         </>
     );
 }

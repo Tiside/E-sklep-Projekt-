@@ -1,0 +1,414 @@
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Anton';
+    src: url('/fonts/Anton-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #f5f5f5;
+    --crimson: #DC143C;
+    --red: #DC3545;
+    --black: #000000;
+    --light-silver: #C0C0C0;
+    --box-shadow-black: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    --transaperecy: rgba(0, 0, 0, 0.2);
+    --gray-transaperecy: rgb(146 151 179 / 13%);
+}
+
+.container-card {
+    transition: flex-basis 0.5s ease;
+    margin: 20px;
+    position: relative;
+    width: fit-content;
+}
+
+.hide-sidebar .container-card .card {
+    width: 420px;
+}
+
+.container .content .side-content{
+    width: 15%;
+    margin-left: 20px;
+}
+
+.container .content .side-content ul{
+    list-style-type: none;
+    border: 1px solid var(--light-silver);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.container .content .side-content li{
+    font-size: 16px;
+    color: var(--black);
+    margin-bottom: 10px;
+    font-weight: 550;
+    cursor: pointer;
+    transition: 0.5s margin ease;
+}
+
+.container .content .side-content li:last-of-type{
+    margin-bottom: 0;
+}
+
+.container .content .side-content li:hover{
+    margin-left: 10px;
+}
+
+.container .content .side-content .side-lists{
+    border: 1px solid var(--light-silver);
+    border: 1px solid var(--light-silver);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: var(--black, #111);
+    border-top: 1px solid var(--light-silver, #ccc);
+    padding: 20px 0;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.list:last-child{
+    border-bottom: 1px solid var(--light-silver);
+}
+
+.list svg {
+    width: 20px;
+    transition: transform 0.3s ease;
+}
+
+.options {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 550;
+    transition: max-height 0.5s ease;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.options input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.content-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    transition: all 0.5s ease;
+    width: 100%;
+    margin-left: 40px;
+}
+
+
+.container-card {
+    position: relative;
+    margin-bottom: 50px;
+
+}
+
+.container-card .card {
+    position: relative;
+    width: 360px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+
+.container-card .card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container-card .card:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.container-card .card[data-color="red"]:before {
+    background: #FF0000;
+}
+.container-card .card[data-color="green-lime"]:before {
+    background: #9bdc28;
+}
+.container-card .card[data-color="light-blue"]:before {
+    background: #00BFFF;
+}
+.container-card .card[data-color="white"]:before {
+    background: white;
+}
+.container-card .card[data-color="skyblue"]:before {
+    background: #87CEFA;
+}
+.container-card .card[data-color="gray"]:before {
+    background: #D3D3D3;
+}
+.container-card .card[data-color="yellow"]:before {
+    background: #FFFF00;
+}
+.container-card .card[data-color="black"]:before {
+    background: #000000;
+}
+
+
+.container-card .card:after {
+    content: "King";
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.04);
+}
+.container-card .card .imgBx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+}
+
+.container-card .card:hover .imgBx {
+    top: 0%;
+    transform: translateY(-25%);
+    cursor: pointer;
+}
+
+.container-card .card .imgBx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    width: 270px;
+}
+
+.container-card .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.container-card .card:hover .contentBx {
+    height: 210px;
+}
+
+.container-card .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.container-card .card .contentBx .size,
+.container-card .card .contentBx .color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.container-card .card:hover .contentBx .size {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+.container-card .card:hover .contentBx .color {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.6s;
+}
+
+.container-card .card .contentBx .size h3,
+.container-card .card .contentBx .color h3 {
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container-card .card .contentBx .size span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: .5s;
+    cursor: pointer;
+}
+.container-card .card .contentBx .size span:hover {
+    background: #9bdc28;
+}
+.container-card .card .contentBx .color span {
+    width: 20px;
+    height: 20px;
+    background: #ff0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.container-card .card .contentBx .color span:nth-child(1) {
+    background: yellow;
+}
+
+.container-card .card .contentBx .color span:nth-child(2) {
+    background: #1B2FE9;
+}
+
+.container-card .card .contentBx .color span:nth-child(3) {
+    background: white;
+}
+
+
+.container-card .card .contentBx .shopBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+}
+
+.container-card .card:hover .contentBx .shopBtn {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .7s;
+}
+
+.product-cart-info {
+    position: absolute;
+    bottom: -50px;
+    z-index: 0;
+    width: 94.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 10px;
+    background: #232323;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.product-cart-info:hover {
+    background-color: #222;
+    transform: translateY(-3px);
+}
+
+.info-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+.description {
+    font-size: 14px;
+    color: #cccccc;
+    margin: 5px 0 0 0;
+}
+
+.info-like {
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s;
+}
+
+.info-like svg {
+    width: 28px;
+    height: 28px;
+    color: #888888;
+}
+
+.info-like svg{
+    fill: #ff4d4d;
+    stroke: #ff4d4d;
+    transition: transform 0.3s;
+}
+
+/*.info-like:hover svg {*/
+/*    fill: #ff4d4d;
+/*    stroke: #ff4d4d;
+/*    transform: scale(1.2);*/
+/*}*/
