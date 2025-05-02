@@ -10,11 +10,70 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+}
+
+.login-communications {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 50px;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+}
+
+.login-communications.show{
+    height: auto;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.communications-content {
+    flex-direction: column;
+    text-align: center;
+    border-end-end-radius: 15px;
+    border-end-start-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    width: 30%;
+    padding: 20px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.communications-content.success {
+    background-color: #28a745;
+}
+
+.communications-content.error {
+    background-color: #dc3545;
+}
+
+.communications-content h3 {
+    line-height: 1.6rem;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.communications-content p {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.communications-content svg {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    stroke: white;
+}
+
+.login-reg-container{
+    display: flex;
+    justify-content: center;
 }
 
 .container{
@@ -88,6 +147,7 @@ form{ width: 100%; }
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
+    width: 25px;
 }
 
 .forgot-link{ margin: -15px 0 15px; }

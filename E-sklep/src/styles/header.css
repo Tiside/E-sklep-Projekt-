@@ -1,4 +1,3 @@
-
 @tailwind utilities;
 @font-face {
     font-family: 'Roboto';
@@ -26,13 +25,13 @@ i.bx, i.bxs, i.bxl {
     font-weight: 400;
 }
 
-:root{
+:root {
     --primary-color: #f5f5f5;
-    --crimson: 	#DC143C;
+    --crimson: #DC143C;
     --red: #DC3545;
     --indianred: #CD5C5C;
     --blue-color: #0000FF;
-    --green-color: 	#00FA9A;
+    --green-color: #00FA9A;
     --black: #000000;
     --light-silver: #C0C0C0;
     --box-shadow-black: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -40,7 +39,7 @@ i.bx, i.bxs, i.bxl {
     --gray-transaperecy: rgb(146 151 179 / 13%);
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--primary);
 }
@@ -96,11 +95,15 @@ a{
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-.search{
+.search {
     color: var(--primary-color);
     border: 1px solid var(--light-silver);
     border-radius: 100%;
@@ -109,7 +112,7 @@ a{
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.search:hover{
+.search:hover {
     transform: scale(1.1);
     box-shadow: var(--box-shadow-black);
 }
@@ -160,12 +163,12 @@ a{
 }
 
 
-.nav{
+.nav {
     align-items: center;
     background-color: var(--red);
 }
 
-.nav-content{
+.nav-content {
     display: flex;
     align-items: center;
     width: 100%;
@@ -189,7 +192,7 @@ a{
     transition: transform 0.5s ease;
 }
 
-.nav .center-nav ul{
+.nav .center-nav ul {
     list-style-type: none;
     display: flex;
     column-gap: 50px;
@@ -197,14 +200,14 @@ a{
     padding-bottom: 20px;
 }
 
-.nav .center-nav ul li{
+.nav .center-nav ul li {
     color: var(--primary-color);
     position: relative;
     z-index: 1000;
     transition: color 0.5s ease;
 }
 
-.nav .center-nav ul li:hover{
+.nav .center-nav ul li:hover {
     color: var(--black);
     cursor: pointer;
 }
@@ -213,17 +216,19 @@ a{
     color: var(--black);
 }
 
-.user-container{
+.user-container {
     display: flex;
     align-items: center;
     grid-gap: 25px;
 }
 
-.like-content{
+.like-content,
+.cart-content {
     position: relative;
-
 }
-.user-container .bx-heart{
+
+.user-container .bx-heart,
+.user-container .cart{
     font-size: 30px;
     color: white;
     display: flex;
@@ -231,7 +236,8 @@ a{
     transition: color 0.5s ease;
 }
 
-.user-container .bx-heart:hover{
+.user-container .bx-heart:hover,
+.user-container .cart:hover {
     color: black;
 }
 
@@ -239,7 +245,7 @@ a{
     position: absolute;
     top: -30%;
     right: -30%;
-    background-color:#1E90FF;
+    background-color: #1E90FF;
     border-radius: 50%;
     color: white;
     padding: 5px;
@@ -250,17 +256,29 @@ a{
     align-items: center;
     text-align: center;
 }
-
-/* .user-container .bx-heart::before{
-    content: "";
+.user-container .cart-number{
     position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #0000FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:var(--primary-color);
+    font-size: 12px;
+    height: 0;
+    width: 100%;
+    top: 65%;
+}
 
 
-} */
+    /* .user-container .bx-heart::before{
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #0000FF;
+
+
+    } */
 
 .user-pfp {
     background-image: url('https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg');
@@ -271,6 +289,7 @@ a{
     height: 50px;
     position: relative;
     transition: box-shadow 0.5s ease;
+
 }
 
 .user-pfp:hover {
@@ -282,7 +301,7 @@ a{
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.808);
 }
 
-.user-pfp svg{
+.user-pfp svg {
     color: white;
     position: absolute;
     left: 50%;
@@ -293,15 +312,17 @@ a{
     transition: transform 0.5s ease, color 0.5s ease, opacity 0.5s ease, z-index 0.5s ease, scale 0.5s ease;
 }
 
-.user-pfp svg:hover{
+.user-pfp svg:hover {
     color: gray;
     scale: 1.09;
     cursor: pointer;
 }
-.user-pfp a{
+
+.user-pfp a {
     text-decoration: none;
     color: white;
 }
+
 .user-pfp .bx-log-in.show {
     transform: translate(25px, -10px);
     opacity: 1;
@@ -314,8 +335,9 @@ a{
     z-index: 1;
 }
 
-.user-pfp .cart.show {
+.user-pfp .orders.show {
     transform: translate(25px, 30px);
     opacity: 1;
     z-index: 1;
 }
+
