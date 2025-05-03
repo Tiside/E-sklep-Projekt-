@@ -38,6 +38,11 @@
     --gray-transaperecy: rgb(146 151 179 / 13%);
 }
 
+favorites-content {
+    display: flex;
+    column-gap: 20px;
+}
+
 .container-card {
     transition: flex-basis 0.5s ease;
     margin: 20px;
@@ -49,12 +54,12 @@
     width: 420px;
 }
 
-.container .content .side-content{
+.container .content .side-content {
     width: 15%;
     margin-left: 20px;
 }
 
-.container .content .side-content ul{
+.container .content .side-content ul {
     list-style-type: none;
     border: 1px solid var(--light-silver);
     border-radius: 10px;
@@ -62,7 +67,7 @@
     margin-bottom: 20px;
 }
 
-.container .content .side-content li{
+.container .content .side-content li {
     font-size: 16px;
     color: var(--black);
     margin-bottom: 10px;
@@ -71,15 +76,15 @@
     transition: 0.5s margin ease;
 }
 
-.container .content .side-content li:last-of-type{
+.container .content .side-content li:last-of-type {
     margin-bottom: 0;
 }
 
-.container .content .side-content li:hover{
+.container .content .side-content li:hover {
     margin-left: 10px;
 }
 
-.container .content .side-content .side-lists{
+.container .content .side-content .side-lists {
     border: 1px solid var(--light-silver);
     border: 1px solid var(--light-silver);
     border-radius: 10px;
@@ -98,7 +103,7 @@
     cursor: pointer;
 }
 
-.list:last-child{
+.list:last-child {
     border-bottom: 1px solid var(--light-silver);
 }
 
@@ -181,24 +186,31 @@
 .container-card .card[data-color="red"]:before {
     background: #FF0000;
 }
+
 .container-card .card[data-color="green-lime"]:before {
     background: #9bdc28;
 }
+
 .container-card .card[data-color="light-blue"]:before {
     background: #00BFFF;
 }
+
 .container-card .card[data-color="white"]:before {
     background: white;
 }
+
 .container-card .card[data-color="skyblue"]:before {
     background: #87CEFA;
 }
+
 .container-card .card[data-color="gray"]:before {
     background: #D3D3D3;
 }
+
 .container-card .card[data-color="yellow"]:before {
     background: #FFFF00;
 }
+
 .container-card .card[data-color="black"]:before {
     background: #000000;
 }
@@ -214,6 +226,7 @@
     font-style: italic;
     color: rgba(255, 255, 255, 0.04);
 }
+
 .container-card .card .imgBx {
     position: absolute;
     top: 50%;
@@ -269,11 +282,13 @@
     opacity: 0;
     visibility: hidden;
 }
+
 .container-card .card:hover .contentBx .size {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.5s;
 }
+
 .container-card .card:hover .contentBx .color {
     opacity: 1;
     visibility: visible;
@@ -303,9 +318,11 @@
     transition: .5s;
     cursor: pointer;
 }
+
 .container-card .card .contentBx .size span:hover {
     background: #9bdc28;
 }
+
 .container-card .card .contentBx .color span {
     width: 20px;
     height: 20px;
@@ -401,7 +418,7 @@
     color: #888888;
 }
 
-.info-like svg{
+.info-like svg {
     fill: #ff4d4d;
     stroke: #ff4d4d;
     transition: transform 0.3s;

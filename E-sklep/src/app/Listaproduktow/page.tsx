@@ -81,7 +81,7 @@ export default function Listaproduktow() {
             });
         }
 
-        // Очистка событий когда компонент демонтируется (best practice в React)
+
         return () => {
             sortToggle?.removeEventListener('click', () => {
             });
@@ -107,7 +107,7 @@ export default function Listaproduktow() {
         setTimeout(() => {
             setCurrentIndex((prev) => (prev + 1) % texts.length);
             setFade(false);
-        }, 300); // Fade duration
+        }, 300);
     };
 
     const prevText = () => {
@@ -118,13 +118,13 @@ export default function Listaproduktow() {
         }, 300);
     };
 
-    // 🚀 Автоматическая смена текста каждые 5 секунд
+
     useEffect(() => {
         const interval = setInterval(() => {
             nextText();
-        }, 5000); // 5000ms = 5s
+        }, 5000);
 
-        return () => clearInterval(interval); // Чистим таймер при размонтировании
+        return () => clearInterval(interval);
     }, []);
 
 

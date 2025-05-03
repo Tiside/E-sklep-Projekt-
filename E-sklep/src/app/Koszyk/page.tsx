@@ -26,58 +26,103 @@ export default function Kontakt() {
             }
         });
 
-        const changeSizeBtns = document.querySelectorAll(".to-change-size") as NodeListOf<HTMLSpanElement>;
-        const changeColorBtns = document.querySelectorAll(".to-change-color") as NodeListOf<HTMLSpanElement>;
-
         const changeSizePopup = document.querySelector(".change-size") as HTMLElement | null;
         const changeColorPopup = document.querySelector(".change-color") as HTMLElement | null;
 
-        const closeBtns = document.querySelectorAll(".change-size .close, .change-color .close") as NodeListOf<SVGElement>;
+        const sizeImg = changeSizePopup?.querySelector("img") as HTMLImageElement | null;
+        const colorImg = changeColorPopup?.querySelector("img") as HTMLImageElement | null;
 
-        const sizeImg = document.querySelector(".change-size .change-image img") as HTMLImageElement | null;
-        const colorImg = document.querySelector(".change-color .change-image img") as HTMLImageElement | null;
+        const showPopup = (
+            popup: HTMLElement | null,
+            data: { name: string; category: string; price: string; image: string },
+            imgEl: HTMLImageElement | null
+        ) => {
+            if (!popup || !data) return;
+            const nameEl = popup.querySelector(".change-info h2") as HTMLElement | null;
+            const categoryEl = popup.querySelector(".change-info h4:nth-of-type(1)") as HTMLElement | null;
+            const priceEl = popup.querySelector(".change-info h4:nth-of-type(2)") as HTMLElement | null;
 
-        function getProductImageFromClickedElement(clickedEl: HTMLElement): string | null {
-            const card = clickedEl.closest(".cart-item") || clickedEl.closest(".like-item");
-            if (!card) return null;
-            const img = card.querySelector("img") as HTMLImageElement | null;
-            return img ? img.src : null;
-        }
+            if (imgEl) imgEl.src = data.image;
+            if (nameEl) nameEl.textContent = data.name;
+            if (categoryEl) categoryEl.textContent = data.category;
+            if (priceEl) priceEl.textContent = data.price;
 
-        changeSizeBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                const imgSrc = getProductImageFromClickedElement(btn);
-                if (imgSrc && sizeImg) sizeImg.src = imgSrc;
-                if (changeSizePopup) changeSizePopup.style.display = "flex";
+            popup.style.display = "flex";
+            requestAnimationFrame(() => {
+                popup.classList.add("active");
+            });
+        };
+
+        const hidePopup = (popup: HTMLElement | null) => {
+            if (!popup) return;
+            popup.classList.remove("active");
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 300);
+        };
+
+        document.querySelectorAll(".cart-item").forEach(cart => {
+            const sizeBtn = cart.querySelector(".to-change-size");
+            const colorBtn = cart.querySelector(".to-change-color");
+            const name = cart.querySelector("h3")?.textContent?.trim() || "";
+            const category = cart.querySelector(".info-item p")?.textContent?.trim() || "";
+            const price = cart.querySelector(".price p")?.textContent?.trim() || "";
+            const img = cart.querySelector("img") as HTMLImageElement | null;
+
+            const data = {
+                name,
+                category,
+                price,
+                image: img?.src || "",
+            };
+
+            sizeBtn?.addEventListener("click", () => {
+                showPopup(changeSizePopup, data, sizeImg);
+            });
+
+            colorBtn?.addEventListener("click", () => {
+                showPopup(changeColorPopup, data, colorImg);
             });
         });
 
-        changeColorBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-                const imgSrc = getProductImageFromClickedElement(btn);
-                if (imgSrc && colorImg) colorImg.src = imgSrc;
-                if (changeColorPopup) changeColorPopup.style.display = "flex";
+        document.querySelectorAll(".like-item").forEach(like => {
+            const sizeBtn = like.querySelector(".to-change-size");
+            const colorBtn = like.querySelector(".to-change-color");
+            const name = like.querySelector("h3")?.textContent?.trim() || "";
+            const category = like.querySelector(".info-item p")?.textContent?.trim() || "";
+            const price = like.closest(".like-item-main")?.querySelector(".price p")?.textContent?.trim() || "";
+            const img = like.querySelector("img") as HTMLImageElement | null;
+
+            const data = {
+                name,
+                category,
+                price,
+                image: img?.src || "",
+            };
+
+            sizeBtn?.addEventListener("click", () => {
+                showPopup(changeSizePopup, data, sizeImg);
+            });
+
+            colorBtn?.addEventListener("click", () => {
+                showPopup(changeColorPopup, data, colorImg);
             });
         });
 
-        closeBtns.forEach(btn => {
+        document.querySelectorAll(".close").forEach(btn => {
             btn.addEventListener("click", () => {
-                if (changeSizePopup) changeSizePopup.style.display = "none";
-                if (changeColorPopup) changeColorPopup.style.display = "none";
+                hidePopup(changeSizePopup);
+                hidePopup(changeColorPopup);
             });
         });
 
         return () => {
-            promoToggle?.removeEventListener("click", () => {
+            document.querySelectorAll(".to-change-size, .to-change-color, .close").forEach(el => {
+                el.replaceWith(el.cloneNode(true));
             });
-            changeSizeBtns.forEach(btn => btn.removeEventListener("click", () => {
-            }));
-            changeColorBtns.forEach(btn => btn.removeEventListener("click", () => {
-            }));
-            closeBtns.forEach(btn => btn.removeEventListener("click", () => {
-            }));
         };
     }, []);
+
     return (
         <>
             <Header/>

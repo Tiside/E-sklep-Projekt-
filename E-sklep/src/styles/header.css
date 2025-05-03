@@ -228,7 +228,7 @@ a {
 }
 
 .user-container .bx-heart,
-.user-container .cart{
+.user-container .cart {
     font-size: 30px;
     color: white;
     display: flex;
@@ -241,44 +241,35 @@ a {
     color: black;
 }
 
-.user-container .like-number{
-    position: absolute;
-    top: -30%;
-    right: -30%;
-    background-color: #1E90FF;
-    border-radius: 50%;
-    color: white;
-    padding: 5px;
-    width: 15px;
-    height: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.user-container .cart-number{
+
+.user-container .cart-number,
+.user-container .like-number {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    color:var(--primary-color);
+    color: var(--primary-color);
     font-size: 12px;
     height: 0;
     width: 100%;
     top: 65%;
 }
 
-
-    /* .user-container .bx-heart::before{
-        content: "";
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #0000FF;
+.user-container .like-number {
+    top: 50%;
+}
 
 
-    } */
+/* .user-container .bx-heart::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0000FF;
+
+
+} */
 
 .user-pfp {
     background-image: url('https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg');

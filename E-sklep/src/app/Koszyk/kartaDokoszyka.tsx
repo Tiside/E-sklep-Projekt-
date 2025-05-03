@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Karta from "@/app/_components/karta";
-import type { przedmiot } from "@/app/types/koszyk";
+import type {przedmiot} from "@/app/types/koszyk";
 
 export default function KartaDoKoszyka() {
     const [koszyk, setKoszyk] = useState<przedmiot[]>([]); // Initialize as an empty array
@@ -24,7 +24,7 @@ export default function KartaDoKoszyka() {
     return (
         <div>
             {koszyk.map((p: przedmiot, index: number) => (
-                <Karta key={index} id={p.id} name={p.name} src={p.src} />
+                <Karta key={index} id={p.id} name={p.name} src={p.src}/>
             ))}
         </div>
     );

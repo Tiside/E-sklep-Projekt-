@@ -46,6 +46,7 @@
     font-style: italic;
     color: rgba(255, 255, 255, 0.04);
 }
+
 .container .card .imgBx {
     position: absolute;
     top: 50%;
@@ -141,7 +142,7 @@
     cursor: pointer;
 }
 
-.container .card .contentBx .size span:hover {  
+.container .card .contentBx .size span:hover {
     background: #B90000;
 }
 
@@ -155,15 +156,15 @@
 }
 
 .container .card .contentBx .color span:nth-child(2) {
-     background: yellow;
+    background: yellow;
 }
 
 .container .card .contentBx .color span:nth-child(3) {
-     background: #1B2FE9;
+    background: #1B2FE9;
 }
 
 .container .card .contentBx .color span:nth-child(4) {
-     background: white;
+    background: white;
 }
 
 .container .card .contentBx .shopBtn {
@@ -184,9 +185,9 @@
     opacity: 1;
     transform: translateY(0px);
     transition-delay: .7s;
-} 
+}
 
-.container .card .like{
+.container .card .like {
     height: inherit;
     display: flex;
     justify-content: end;
@@ -197,14 +198,14 @@
     position: relative;
 }
 
-.container .card .like i{
-  font-size: 20px;
-  color: white;
-  transition: color 0.5s ease;
+.container .card .like i {
+    font-size: 20px;
+    color: white;
+    transition: color 0.5s ease;
 }
 
-.container .card .like i:hover{
-  cursor: pointer;
-  color: red;
+.container .card .like i:hover {
+    cursor: pointer;
+    color: red;
 }
 

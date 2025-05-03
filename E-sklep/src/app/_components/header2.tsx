@@ -1,5 +1,5 @@
-export default function Header2(){
-    return(
+export default function Header2() {
+    return (
         <header className=" flex-col w-full bg-gray-200">
             <h1>
                 Glowny header

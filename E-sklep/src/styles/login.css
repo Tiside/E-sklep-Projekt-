@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,7 +9,7 @@
     list-style: none;
 }
 
-body{
+body {
     min-height: 100vh;
     background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
 }
@@ -26,7 +26,7 @@ body{
     transition: all 0.5s ease;
 }
 
-.login-communications.show{
+.login-communications.show {
     height: auto;
     opacity: 1;
     transform: translateY(0);
@@ -71,12 +71,12 @@ body{
     stroke: white;
 }
 
-.login-reg-container{
+.login-reg-container {
     display: flex;
     justify-content: center;
 }
 
-.container{
+.container {
     position: relative;
     width: 850px;
     height: 550px;
@@ -87,19 +87,21 @@ body{
     overflow: hidden;
 }
 
-.container h1{
+.container h1 {
     font-size: 36px;
     margin: -10px 0;
 }
 
-.container p{
+.container p {
     font-size: 14.5px;
     margin: 15px 0;
 }
 
-form{ width: 100%; }
+form {
+    width: 100%;
+}
 
-.form-box{
+.form-box {
     position: absolute;
     right: 0;
     width: 50%;
@@ -114,17 +116,24 @@ form{ width: 100%; }
     transition: .6s ease-in-out 1.2s, visibility 0s 1s;
 }
 
-.container.active .form-box{ right: 50%; }
+.container.active .form-box {
+    right: 50%;
+}
 
-.form-box.register{ visibility: hidden; }
-.container.active .form-box.register{ visibility: visible; }
+.form-box.register {
+    visibility: hidden;
+}
 
-.input-box{
+.container.active .form-box.register {
+    visibility: visible;
+}
+
+.input-box {
     position: relative;
     margin: 30px 0;
 }
 
-.input-box input{
+.input-box input {
     width: 100%;
     padding: 13px 50px 13px 20px;
     background: #eee;
@@ -136,12 +145,12 @@ form{ width: 100%; }
     font-weight: 500;
 }
 
-.input-box input::placeholder{
+.input-box input::placeholder {
     color: #888;
     font-weight: 400;
 }
 
-.input-box svg{
+.input-box svg {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -150,13 +159,16 @@ form{ width: 100%; }
     width: 25px;
 }
 
-.forgot-link{ margin: -15px 0 15px; }
-.forgot-link a{
+.forgot-link {
+    margin: -15px 0 15px;
+}
+
+.forgot-link a {
     font-size: 14.5px;
     color: #333;
 }
 
-.btn{
+.btn {
     width: 100%;
     height: 48px;
     background: #DC3545;
@@ -179,12 +191,12 @@ form{ width: 100%; }
     transform: scale(1.05);
 }
 
-.social-icons{
+.social-icons {
     display: flex;
     justify-content: center;
 }
 
-.social-icons a{
+.social-icons a {
     display: inline-flex;
     padding: 10px;
     border: 2px solid #ccc;
@@ -205,13 +217,13 @@ form{ width: 100%; }
     filter: brightness(1.2);
 }
 
-.toggle-box{
+.toggle-box {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-.toggle-box::before{
+.toggle-box::before {
     content: '';
     position: absolute;
     left: -250%;
@@ -223,9 +235,11 @@ form{ width: 100%; }
     transition: 1.8s ease-in-out;
 }
 
-.container.active .toggle-box::before{ left: 50%; }
+.container.active .toggle-box::before {
+    left: 50%;
+}
 
-.toggle-panel{
+.toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -238,27 +252,31 @@ form{ width: 100%; }
     transition: .6s ease-in-out;
 }
 
-.toggle-panel.toggle-left{
+.toggle-panel.toggle-left {
     left: 0;
     transition-delay: 1.2s;
 }
-.container.active .toggle-panel.toggle-left{
+
+.container.active .toggle-panel.toggle-left {
     left: -50%;
     transition-delay: .6s;
 }
 
-.toggle-panel.toggle-right{
+.toggle-panel.toggle-right {
     right: -50%;
     transition-delay: .6s;
 }
-.container.active .toggle-panel.toggle-right{
+
+.container.active .toggle-panel.toggle-right {
     right: 0;
     transition-delay: 1.2s;
 }
 
-.toggle-panel p{ margin-bottom: 20px; }
+.toggle-panel p {
+    margin-bottom: 20px;
+}
 
-.toggle-panel .btn{
+.toggle-panel .btn {
     width: 160px;
     height: 46px;
     background: transparent;
@@ -266,21 +284,23 @@ form{ width: 100%; }
     box-shadow: none;
 }
 
-@media screen and (max-width: 650px){
-    .container{ height: calc(100vh - 40px); }
+@media screen and (max-width: 650px) {
+    .container {
+        height: calc(100vh - 40px);
+    }
 
-    .form-box{
+    .form-box {
         bottom: 0;
         width: 100%;
         height: 70%;
     }
 
-    .container.active .form-box{
+    .container.active .form-box {
         right: 0;
         bottom: 30%;
     }
 
-    .toggle-box::before{
+    .toggle-box::before {
         left: 0;
         top: -270%;
         width: 100%;
@@ -288,31 +308,41 @@ form{ width: 100%; }
         border-radius: 20vw;
     }
 
-    .container.active .toggle-box::before{
+    .container.active .toggle-box::before {
         left: 0;
         top: 70%;
     }
 
-    .container.active .toggle-panel.toggle-left{
+    .container.active .toggle-panel.toggle-left {
         left: 0;
         top: -30%;
     }
 
-    .toggle-panel{
+    .toggle-panel {
         width: 100%;
         height: 30%;
     }
-    .toggle-panel.toggle-left{ top: 0; }
-    .toggle-panel.toggle-right{
+
+    .toggle-panel.toggle-left {
+        top: 0;
+    }
+
+    .toggle-panel.toggle-right {
         right: 0;
         bottom: -30%;
     }
 
-    .container.active .toggle-panel.toggle-right{ bottom: 0; }
+    .container.active .toggle-panel.toggle-right {
+        bottom: 0;
+    }
 }
 
-@media screen and (max-width: 400px){
-    .form-box { padding: 20px; }
+@media screen and (max-width: 400px) {
+    .form-box {
+        padding: 20px;
+    }
 
-    .toggle-panel h1{font-size: 30px; }
+    .toggle-panel h1 {
+        font-size: 30px;
+    }
 }
