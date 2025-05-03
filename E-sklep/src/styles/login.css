@@ -235,7 +235,21 @@ form {
     transition: 1.8s ease-in-out;
 }
 
-.container.active .toggle-box::before {
+.toggle-panel.toggle-left {
+    left: 20px;
+    transition-delay: 1.2s;
+}
+
+.container.active .toggle-panel.toggle-left {
+    left: -50%;
+    transition-delay: .6s;
+}
+
+.toggle-panel.toggle-right {
+    right: -50%;
+    transition-delay: .6s;
+}
+#auth-toggle:checked ~ .login-reg-container .toggle-box::before {
     left: 50%;
 }
 
@@ -257,7 +271,7 @@ form {
     transition-delay: 1.2s;
 }
 
-.container.active .toggle-panel.toggle-left {
+#auth-toggle:checked ~ .login-reg-container .toggle-panel.toggle-left {
     left: -50%;
     transition-delay: .6s;
 }
@@ -267,9 +281,19 @@ form {
     transition-delay: .6s;
 }
 
-.container.active .toggle-panel.toggle-right {
+#auth-toggle:checked ~ .login-reg-container .toggle-panel.toggle-right {
     right: 0;
     transition-delay: 1.2s;
+}
+
+#auth-toggle:checked ~ .login-reg-container .form-box.login {
+    transform: translateX(100%);
+    pointer-events: none;
+}
+
+#auth-toggle:checked ~ .login-reg-container .form-box.register {
+    transform: translateX(-100%);
+    visibility: visible;
 }
 
 .toggle-panel p {
@@ -282,7 +306,12 @@ form {
     background: transparent;
     border: 2px solid #fff;
     box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
 
 @media screen and (max-width: 650px) {
     .container {
@@ -295,7 +324,7 @@ form {
         height: 70%;
     }
 
-    .container.active .form-box {
+    .container .form-box {
         right: 0;
         bottom: 30%;
     }
@@ -308,12 +337,12 @@ form {
         border-radius: 20vw;
     }
 
-    .container.active .toggle-box::before {
+    .container .toggle-box::before {
         left: 0;
         top: 70%;
     }
 
-    .container.active .toggle-panel.toggle-left {
+    .container .toggle-panel.toggle-left {
         left: 0;
         top: -30%;
     }
@@ -332,7 +361,7 @@ form {
         bottom: -30%;
     }
 
-    .container.active .toggle-panel.toggle-right {
+    .container .toggle-panel.toggle-right {
         bottom: 0;
     }
 }

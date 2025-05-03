@@ -1,58 +1,41 @@
-'use client';
-import {useEffect, useState} from "react";
+
+
 import "../../styles/login.css";
 import {api} from "@/trpc/react";
 import Link from 'next/link';
 import {redirect} from "next/navigation";
 
 export default function Page() {
-    useEffect(() => {
-        const container = document.querySelector('.container');
-        const registerBtn = document.querySelector('.register-btn');
-        const loginBtn = document.querySelector('.login-btn');
-
-        const handleRegister = () => container?.classList.add('active');
-        const handleLogin = () => container?.classList.remove('active');
-
-        registerBtn?.addEventListener('click', handleRegister);
-        loginBtn?.addEventListener('click', handleLogin);
-
-        return () => {
-            registerBtn?.removeEventListener('click', handleRegister);
-            loginBtn?.removeEventListener('click', handleLogin);
-        };
-    }, []);
-
-    const login = api.auth.login.useMutation();
-
-    async function handleLogin(formData: FormData) {
-        const username = formData.get("username") as string;
-        const password = formData.get("password") as string;
-
-        const response = await login.mutateAsync({username, password});
-
-        // Tutaj możesz np. przekierować użytkownika:
-        if (response.success) {
-            console.log("Zalogowano:", response);
-
-            redirect('/')
-        }
-        console.log('Błąd')
-    }
-
-    const register = api.auth.register.useMutation();
-
-
-    async function handleRegister(formData: FormData) {
-        const username = formData.get("username") as string;
-        const email = formData.get("email") as string;
-        const password = formData.get("password") as string;
-        try {
-            await register.mutateAsync({username, email, password});
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    // const login = api.auth.login.useMutation();
+    //
+    // async function handleLogin(formData: FormData) {
+    //     const username = formData.get("username") as string;
+    //     const password = formData.get("password") as string;
+    //
+    //     const response = await login.mutateAsync({username, password});
+    //
+    //     // Tutaj możesz np. przekierować użytkownika:
+    //     if (response.success) {
+    //         console.log("Zalogowano:", response);
+    //
+    //         redirect('/')
+    //     }
+    //     console.log('Błąd')
+    // }
+    //
+    // const register = api.auth.register.useMutation();
+    //
+    //
+    // async function handleRegister(formData: FormData) {
+    //     const username = formData.get("username") as string;
+    //     const email = formData.get("email") as string;
+    //     const password = formData.get("password") as string;
+    //     try {
+    //         await register.mutateAsync({username, email, password});
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
     return (
         <>
@@ -73,10 +56,11 @@ export default function Page() {
                     {/* </svg> */}
                 </div>
             </div>
+            <input type="checkbox" id="auth-toggle" hidden />
             <div className="login-reg-container">
                 <div className="container">
                     <div className="form-box login">
-                        <form action={handleLogin}>
+                        <form >
                             <h1>Login</h1>
                             <div className="input-box">
                                 <input type="text" name="username" placeholder="Username" required/>
@@ -111,7 +95,7 @@ export default function Page() {
                     </div>
 
                     <div className="form-box register">
-                        <form action={handleRegister}>
+                        <form >
                             <h1>Registration</h1>
                             <div className="input-box">
                                 <input type="text" name="username" placeholder="Username" required/>
@@ -157,17 +141,19 @@ export default function Page() {
                         <div className="toggle-panel toggle-left">
                             <h1>Hello, Welcome!</h1>
                             <p>{"Don't have an account?"}</p>
-                            <button className="btn register-btn">Register</button>
+                            {/*<input type="checkbox" className="btn"/>*/}
+                            <label htmlFor="auth-toggle" className="btn">Register</label>
                         </div>
 
                         <div className="toggle-panel toggle-right">
                             <h1>Welcome Back!</h1>
                             <p>Already have an account?</p>
-                            <button className="btn login-btn">Login</button>
+                            <label htmlFor="auth-toggle" className="btn login-btn">Login</label>
                         </div>
                     </div>
                 </div>
             </div>
+
         </>
     );
 }
