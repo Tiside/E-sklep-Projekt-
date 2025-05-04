@@ -498,8 +498,10 @@ hr {
     color: #111;
     background: #fff;
     margin: 0 5px;
+    border-radius: 5px;
     transition: .5s;
     cursor: pointer;
+    z-index: 2000;
 }
 
 .container-card .card .contentBx .size span:hover {
@@ -514,6 +516,7 @@ hr {
     margin: 0 5px;
     cursor: pointer;
 }
+
 
 .container-card .card .contentBx .color span:nth-child(1) {
     background: yellow;
@@ -532,20 +535,26 @@ hr {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-top: 10px;
-    text-decoration: none;
+    margin-left: 10px;
+    border: none;
     font-weight: 600;
     color: #111;
     opacity: 0;
     transform: translateY(50px);
-    transition: .5s;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .container-card .card:hover .contentBx .shopBtn {
     opacity: 1;
     transform: translateY(0px);
-    transition-delay: .7s;
+    transition-delay: 0.3s;
+    cursor: pointer;
+}
+.container-card .card .contentBx .shopBtn:hover {
+    box-shadow: 0px 4px 10px rgba(255, 253, 255, 0.6);
+
 }
 
 .product-cart-info {
@@ -608,8 +617,8 @@ hr {
 }
 
 .info-like:hover svg {
-    fill: #ff4d4d; /* заливаем цветом */
-    stroke: #ff4d4d; /* обводка того же цвета */
+    fill: #ff4d4d;
+    stroke: #ff4d4d;
     transform: scale(1.2);
 }
 
