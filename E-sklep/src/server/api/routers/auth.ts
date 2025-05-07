@@ -19,12 +19,7 @@ export const authRouter = createTRPCRouter({
 
             // 1. Sprawdź, czy istnieje użytkownik o takim samym emailu lub nazwie
             const existingUser = await prisma.users.findUnique({
-                where: {
-                    OR: [
-                        { email: email },
-                        { name: username },
-                    ],
-                },
+              where: { email: "example@example.com" }
             });
 
             if (existingUser) {

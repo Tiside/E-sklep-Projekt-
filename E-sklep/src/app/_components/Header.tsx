@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import UserToggle from "@/app/_components/UserToggle";
@@ -9,6 +10,53 @@ import {useEffect, useState} from "react";
 
 export default function Header() {
     const [searchOpen, setSearchOpen] = useState(false);
+    const [isClient, setIsClient] = useState(false)
+    useEffect(()=>{
+        setIsClient(true)
+        const configs = [
+            {
+                box: document.querySelector(".item-cart-add") as HTMLElement | null,
+                closeBtn: document.querySelector(".close-cart") as HTMLElement | null
+            },
+            {
+                box: document.querySelector(".item-like-add") as HTMLElement | null,
+                closeBtn: document.querySelector(".close-like") as HTMLElement | null
+            }
+        ];
+
+        const timeouts: NodeJS.Timeout[] = [];
+
+        configs.forEach(({ box, closeBtn }) => {
+            if (!box || !closeBtn) return;
+
+            const hide = () => {
+                box.style.display = "none";
+            };
+
+            box.style.display = "block";
+            const timeout = setTimeout(hide, 5000);
+            timeouts.push(timeout);
+
+            closeBtn.addEventListener("click", hide);
+
+            return () => {
+                closeBtn.removeEventListener("click", hide);
+            };
+        });
+
+        return () => {
+            timeouts.forEach(clearTimeout);
+        };
+    },[])
+
+    
+    function logout(){
+        if(typeof window !== "undefined" && isClient){
+            if(localStorage.getItem("login")){
+                localStorage.removeItem('login')
+            }
+        }
+    }
     return (
         <>
             <div className="nav">
@@ -89,13 +137,23 @@ export default function Header() {
                         </div>
                         <div className="user">
                             <div className="user-pfp">
-                                <Link href="/Login">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
-                                        <path strokeLinecap="round" strokeLinejoin="round"
-                                              d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
-                                    </svg>
-                                </Link>
+                                {/* {localStorage.getItem("login") ? (
+                                    <a onClick={logout}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
+                                        </svg>
+                                    </a>
+                                ) : ( */}
+                                    <Link href="/Login">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
+                                        </svg>
+                                    </Link>
+                                {/* )} */}
                                 {/*<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">*/}
                                 {/*  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />*/}
                                 {/*</svg>*/}

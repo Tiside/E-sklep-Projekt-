@@ -1,41 +1,42 @@
 
-
+'use client'
 import "../../styles/login.css";
 import {api} from "@/trpc/react";
-import Link from 'next/link';
 import {redirect} from "next/navigation";
 
 export default function Page() {
-    // const login = api.auth.login.useMutation();
-    //
-    // async function handleLogin(formData: FormData) {
-    //     const username = formData.get("username") as string;
-    //     const password = formData.get("password") as string;
-    //
-    //     const response = await login.mutateAsync({username, password});
-    //
-    //     // Tutaj możesz np. przekierować użytkownika:
-    //     if (response.success) {
-    //         console.log("Zalogowano:", response);
-    //
-    //         redirect('/')
-    //     }
-    //     console.log('Błąd')
-    // }
-    //
-    // const register = api.auth.register.useMutation();
-    //
-    //
-    // async function handleRegister(formData: FormData) {
-    //     const username = formData.get("username") as string;
-    //     const email = formData.get("email") as string;
-    //     const password = formData.get("password") as string;
-    //     try {
-    //         await register.mutateAsync({username, email, password});
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+    const login = api.auth.login.useMutation();
+    
+    async function handleLogin(formData: FormData) {
+        const username = formData.get("username") as string;
+        const password = formData.get("password") as string;
+    
+        const response = await login.mutateAsync({username, password});
+    
+        // Tutaj możesz np. przekierować użytkownika:
+        if (response.success) {
+            console.log("Zalogowano:", response);
+            if(!localStorage.getItem("login")){
+                localStorage.setItem("login",response.userId)
+            }
+            redirect('/')
+        }
+        console.log('Błąd')
+    }
+    
+    const register = api.auth.register.useMutation();
+    
+    
+    async function handleRegister(formData: FormData) {
+        const username = formData.get("username") as string;
+        const email = formData.get("email") as string;
+        const password = formData.get("password") as string;
+        try {
+            await register.mutateAsync({username, email, password});
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     return (
         <>
@@ -60,7 +61,7 @@ export default function Page() {
             <div className="login-reg-container">
                 <div className="container">
                     <div className="form-box login">
-                        <form >
+                        <form action={handleLogin}>
                             <h1>Login</h1>
                             <div className="input-box">
                                 <input type="text" name="username" placeholder="Username" required/>
@@ -95,7 +96,7 @@ export default function Page() {
                     </div>
 
                     <div className="form-box register">
-                        <form >
+                        <form action={handleRegister}>
                             <h1>Registration</h1>
                             <div className="input-box">
                                 <input type="text" name="username" placeholder="Username" required/>

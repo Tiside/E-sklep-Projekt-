@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react";
 import Karta from "@/app/_components/karta";
 import type {przedmiot} from "@/app/types/koszyk";
+import KartaKoszyk from "../_components/kartaKoszyk";
 
 export default function KartaDoKoszyka() {
     const [koszyk, setKoszyk] = useState<przedmiot[]>([]); // Initialize as an empty array
@@ -24,7 +25,7 @@ export default function KartaDoKoszyka() {
     return (
         <div>
             {koszyk.map((p: przedmiot, index: number) => (
-                <Karta key={index} id={p.id} name={p.name} src={p.src}/>
+                <KartaKoszyk key={index} id={p.id} name={p.name} src={p.src} price={p.price} count={p.count}/>
             ))}
         </div>
     );

@@ -4,7 +4,12 @@
  */
 import "./src/env.js";
 
+// next blokuje strony wiec trzeba to zmienic tutaj
 /** @type {import("next").NextConfig} */
-const config = {};
-
-export default config;
+const config = {
+    images: {
+      domains: ['drop-up.pl', 'aplug.pl'],
+    },
+  };
+  
+  export default config;
