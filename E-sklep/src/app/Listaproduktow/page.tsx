@@ -12,6 +12,7 @@ import Link from "next/link";
 
 
 
+
 export default function Listaproduktow() {
     useEffect(() => {
         const sortToggle = document.querySelector('.sort-toggle') as HTMLElement;

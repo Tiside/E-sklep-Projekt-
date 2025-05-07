@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import UserToggle from "@/app/_components/UserToggle";
@@ -10,9 +10,8 @@ import {useEffect, useState} from "react";
 
 export default function Header() {
     const [searchOpen, setSearchOpen] = useState(false);
-    const [isClient, setIsClient] = useState(false)
-    useEffect(()=>{
-        setIsClient(true)
+
+    useEffect(() => {
         const configs = [
             {
                 box: document.querySelector(".item-cart-add") as HTMLElement | null,
@@ -47,20 +46,11 @@ export default function Header() {
         return () => {
             timeouts.forEach(clearTimeout);
         };
-    },[])
+    }, []);
 
-    
-    function logout(){
-        if(typeof window !== "undefined" && isClient){
-            if(localStorage.getItem("login")){
-                localStorage.removeItem('login')
-            }
-        }
-    }
     return (
         <>
             <div className="nav">
-
                 {searchOpen && (
                     <div className="search-overlay">
                         <div className="search-bar-expanded">
@@ -137,23 +127,13 @@ export default function Header() {
                         </div>
                         <div className="user">
                             <div className="user-pfp">
-                                {/* {localStorage.getItem("login") ? (
-                                    <a onClick={logout}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
-                                            <path strokeLinecap="round" strokeLinejoin="round"
-                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
-                                        </svg>
-                                    </a>
-                                ) : ( */}
-                                    <Link href="/Login">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
-                                            <path strokeLinecap="round" strokeLinejoin="round"
-                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
-                                        </svg>
-                                    </Link>
-                                {/* )} */}
+                                <Link href="/Login">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
+                                        <path strokeLinecap="round" strokeLinejoin="round"
+                                              d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
+                                    </svg>
+                                </Link>
                                 {/*<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">*/}
                                 {/*  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />*/}
                                 {/*</svg>*/}
@@ -167,14 +147,75 @@ export default function Header() {
                                     <path strokeLinecap="round" strokeLinejoin="round"
                                           d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0 1 18 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3 1.5 1.5 3-3.75"/>
                                 </svg>
-
-
                             </div>
                             <UserToggle/>
                         </div>
                     </div>
-                </div>
 
+                </div>
+                <div className="item-cart-add">
+                    <div className="item-cart-container">
+                        <div className="item-cart-check">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <p>Added to Cart</p>
+                        </div>
+                        <div className="item-cart-content">
+                            <img src="https://aplug.pl/cdn/shop/products/air-jordan-1-high-chicago-lost-and-found-1.png?v=1698685002&width=600" alt=""/>
+                            <div className="item-cart-content-info">
+                                <h3>Shoes Name</h3>
+                                <p>Men's shoes</p>
+                                <p>Size 42</p>
+                                <p>499 $</p>
+                            </div>
+                        </div>
+                        <Link href="/Koszyk">
+                            <button className="btn-view-cart">View Cart(1)</button>
+                        </Link>
+                        <button className="btn-checkout-cart">Checkout</button>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                         strokeWidth="1.5" stroke="currentColor"
+                         className="size-8 close-cart">
+                        <circle className="progress-ring" cx="12" cy="12" r="10" stroke="gray" strokeWidth="2" fill="none" />
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+
+
+                </div>
+                <div className="item-like-add">
+                    <div className="item-like-container">
+                        <div className="item-like-check">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <p>Added to Favorites</p>
+                        </div>
+                        <div className="item-like-content">
+                            <img src="https://aplug.pl/cdn/shop/products/air-jordan-1-high-chicago-lost-and-found-1.png?v=1698685002&width=600" alt=""/>
+                            <div className="item-cart-content-info">
+                                <h3>Shoes Name</h3>
+                                <p>Men's shoes</p>
+                                <p>Size 42</p>
+                                <p>499 $</p>
+                            </div>
+                        </div>
+                        <Link href="/Favorites">
+                            <button className="btn-view-like">View Favorites(1)</button>
+                        </Link>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                         strokeWidth="1.5" stroke="currentColor" className="size-8 close-like">
+                        <circle className="progress-ring" cx="12" cy="12" r="10" stroke="gray" strokeWidth="2" fill="none" />
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+
+                </div>
             </div>
         </>
     );
