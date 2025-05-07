@@ -1,6 +1,5 @@
 'use client'
 import "@/styles/cart.css";
-import {any, number} from "zod";
 import KartaDoKoszyka from "./kartaDokoszyka";
 import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/Footer";
@@ -165,7 +164,7 @@ export default function Kontakt() {
                                 <p>400$</p>
                             </div>
                             <hr/>
-                            <p className="free-shipping-text">You've earned <strong>Free Shipping!</strong></p>
+                            <p className="free-shipping-text">You&apos;ve earned <strong>Free Shipping!</strong></p>
                             <div className="shipping-progress">
                                 <div className="shipping-bar">
                                     <div className="filled"></div>
@@ -187,7 +186,7 @@ export default function Kontakt() {
                             </p>
                         </div>
                     </div>
-                    <div className="cart-like">
+                    <div className="cart-like w-[60%]">
                         <h2>Favorites</h2>
                         <div className="like-item-main">
                             <div className="like-item">
@@ -198,7 +197,7 @@ export default function Kontakt() {
                                 </div>
                                 <div className="info-item">
                                     <h3>Nike Vapor MAX</h3>
-                                    <p>Men's Shoes</p>
+                                    <p>Men&apos;s Shoes</p>
                                     <p>Color: <span className="to-change-color">Select</span></p>
                                     <p>Size: <span className="to-change-size">Select</span></p>
                                     <button className="add-cart-item">Add to Cart</button>
@@ -251,29 +250,29 @@ export default function Kontakt() {
                         <img
                             src="https://drop-up.pl/cdn/shop/files/drop-up.pl-Jordan-1-Mid-SE-Ice-Blue-_2023_-1.png?v=1717151657"
                             alt="Jordan"/>
-                        <p><strong>Jordan Air 1</strong><br/><span>Men's Shoes</span><br/>$100.00</p>
+                        <p><strong>Jordan Air 1</strong><br/><span>Men&apos;s Shoes</span><br/>$100.00</p>
                     </div>
                     <div className="carousel-item">
                         <img
                             src="https://drop-up.pl/cdn/shop/files/drop-up.pl-Jordan-1-Mid-SE-Ice-Blue-_2023_-1.png?v=1717151657"
                             alt="Nike Solo"/>
-                        <p><strong>Nike Air Jordan 1</strong><br/><span>Men's Shoes</span><br/>$145.00</p>
+                        <p><strong>Nike Air Jordan 1</strong><br/><span>Men&apos;s Shoes</span><br/>$145.00</p>
                     </div>
                     <div className="carousel-item">
                         <img
                             src="https://static.nike.com/a/images/w_1280,q_auto,f_auto/55b488b9-7ffd-47a6-8192-049ec2fd702f/air-jordan-iv-black-cat-release-date.jpg"
                             alt="Nike Tech"/>
-                        <p><strong>Nike Air Jordan 4 Black Cat</strong><br/><span>Men's Shoes</span><br/>$130.00</p>
+                        <p><strong>Nike Air Jordan 4 Black Cat</strong><br/><span>Men&apos;s Shoes</span><br/>$130.00</p>
                     </div>
                     <div className="carousel-item">
                         <img src="https://owcastore.pl/wp-content/uploads/2023/06/dada3qw4q2-1.png" alt="Nike Tech"/>
-                        <p><strong>Nike Air Jordan 1 High</strong><br/><span>Men's Shoes</span><br/>$130.00</p>
+                        <p><strong>Nike Air Jordan 1 High</strong><br/><span>Men&apos;s Shoes</span><br/>$130.00</p>
                     </div>
                     <div className="carousel-item">
                         <img
                             src="https://drop-up.pl/cdn/shop/files/drop-up.pl-Air-Jordan-4-Retro-_Thunder_-_2023_-1.png?v=1717147908"
                             alt="Nike Tech"/>
-                        <p><strong>Nike Air Jordan 4 Thunder</strong><br/><span>Men's Shoes</span><br/>$130.00</p>
+                        <p><strong>Nike Air Jordan 4 Thunder</strong><br/><span>Men&apos;s Shoes</span><br/>$130.00</p>
                     </div>
                 </div>
             </div>
@@ -285,7 +284,7 @@ export default function Kontakt() {
                         alt=""/>
                 </div>
                 <div className="change-info">
-                    <h4>Men's Shoes</h4>
+                    <h4>Men&apos;s Shoes</h4>
                     <h2>Nike Air Jordan 1</h2>
                     <h4>190.00$</h4>
                     <h4>Select Size</h4>
@@ -328,7 +327,7 @@ export default function Kontakt() {
                         alt="Selected Product"/>
                 </div>
                 <div className="change-info">
-                    <h4>Men's Shoes</h4>
+                    <h4>Men&apos;s Shoes</h4>
                     <h2>Nike Air Jordan 1</h2>
                     <h4>190.00$</h4>
                     <h4>Select Size</h4>

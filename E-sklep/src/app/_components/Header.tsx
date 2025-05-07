@@ -4,12 +4,23 @@ import Link from "next/link";
 import UserToggle from "@/app/_components/UserToggle";
 import "@/styles/header.css"
 
-import UserUi from "@/app/_components/UserUi";
 import {useEffect, useState} from "react";
 
 
 export default function Header() {
     const [searchOpen, setSearchOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [koszykCount, setKoszykCount] = useState(0);
+
+    useEffect(() => {
+        const login = localStorage.getItem('login')
+        setIsLoggedIn(!!login)
+    }, [])
+
+    useEffect(() => {
+        const koszyk = localStorage.getItem('koszyk')
+        setKoszykCount(koszyk ? JSON.parse(koszyk).length : 0)
+    }, [koszykCount])
 
     useEffect(() => {
         const configs = [
@@ -99,41 +110,41 @@ export default function Header() {
                         </svg>
                         <div className="like-content">
                             <Link href="/Favorites">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth={1.5} stroke="currentColor" className="size-8 bx-heart">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8l0-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5l0 3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20-.1-.1s0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5l0 3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2l0-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z" /></svg>
+                                <div className="like-number">
+                                    {/* <!-- liczba zmieniajaca sie wedlug liczby dodanych przedmiotow do likow(Jezeli nie ma zadnych przedmiotow to like number jest wylaczane (display: block;)) --> */}
+                                    1
+                                </div>
                             </Link>
-
-                            <div className="like-number">
-                                {/* <!-- liczba zmieniajaca sie wedlug liczby dodanych przedmiotow do likow(Jezeli nie ma zadnych przedmiotow to like number jest wylaczane (display: block;)) --> */}
-                                1
-                            </div>
-
                         </div>
-                        <div className="cart-content">
+                        <div className="cart-content size-8 static z-10">
                             <Link href="/Koszyk">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     strokeWidth={1.5} stroke="currentColor" className="size-8 cart">
-                                    <path strokeLinecap="round" strokeLinejoin="round"
-                                          d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="size-8 cart"><path d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H69.5c3.8 0 7.1 2.7 7.9 6.5l51.6 271c6.5 34 36.2 58.5 70.7 58.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H199.7c-11.5 0-21.4-8.2-23.6-19.5L170.7 288H459.2c32.6 0 61.1-21.8 69.5-53.3l41-152.3C576.6 57 557.4 32 531.1 32h-411C111 12.8 91.6 0 69.5 0H24zM131.1 80H520.7L482.4 222.2c-2.8 10.5-12.3 17.8-23.2 17.8H161.6L131.1 80zM176 512a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm336-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z" /></svg>
+                                <div className="cart-number">
+                                    {koszykCount}
+                                </div>
                             </Link>
-                            <div className="cart-number">
-                                {/* <!-- liczba zmieniajaca sie wedlug liczby dodanych przedmiotow do likow(Jezeli nie ma zadnych przedmiotow to like number jest wylaczane (display: block;)) --> */}
-                                2
-                            </div>
                         </div>
                         <div className="user">
                             <div className="user-pfp">
-                                <Link href="/Login">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
-                                        <path strokeLinecap="round" strokeLinejoin="round"
-                                              d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
-                                    </svg>
-                                </Link>
+                                {isLoggedIn ? (
+                                    <a href="/Logout">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
+                                        </svg>
+                                    </a>
+                                ):(
+                                    <a href="/Login">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            strokeWidth={1.5} stroke="currentColor" className="size-6 bx-log-in">
+                                            <path strokeLinecap="round" strokeLinejoin="round"
+                                                d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"/>
+                                        </svg>
+                                    </a>
+                                )}
+                                
                                 {/*<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">*/}
                                 {/*  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />*/}
                                 {/*</svg>*/}
@@ -153,7 +164,7 @@ export default function Header() {
                     </div>
 
                 </div>
-                <div className="item-cart-add">
+                {/* <div className="item-cart-add">
                     <div className="item-cart-container">
                         <div className="item-cart-check">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -182,9 +193,6 @@ export default function Header() {
                         <path strokeLinecap="round" strokeLinejoin="round"
                               d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-
-
-
                 </div>
                 <div className="item-like-add">
                     <div className="item-like-container">
@@ -213,9 +221,7 @@ export default function Header() {
                         <path strokeLinecap="round" strokeLinejoin="round"
                               d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-
-
-                </div>
+                </div> */}
             </div>
         </>
     );

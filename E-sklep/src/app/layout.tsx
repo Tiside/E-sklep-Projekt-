@@ -7,8 +7,6 @@ import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
 
-import Script from "next/script";
-
 export const metadata: Metadata = {
   title: "ShoeKing",
   description: "Sneaker Shop",
@@ -22,8 +20,6 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
-        {/* Bootstrap JS (и Popper если нужно) */}
-        <Script src="/js/bootstrap.min.js" strategy="beforeInteractive" />
 
       </body>
     </html>

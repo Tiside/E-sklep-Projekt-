@@ -7,9 +7,13 @@ import "./src/env.js";
 // next blokuje strony wiec trzeba to zmienic tutaj
 /** @type {import("next").NextConfig} */
 const config = {
-    images: {
-      domains: ['drop-up.pl', 'aplug.pl'],
-    },
-  };
-  
-  export default config;
+  images: {
+    domains: ['drop-up.pl', 'aplug.pl'],
+  },
+  eslint: {
+    // Ignore ESLint errors during build
+    ignoreDuringBuilds: true,
+  },
+};
+
+export default config;

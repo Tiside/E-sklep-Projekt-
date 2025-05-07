@@ -1,14 +1,11 @@
 'use client'
 import "@/styles/productList.css";
 import "@/styles/header.css"
-import Karta from "@/app/_components/karta";
-import Cursor from "@/app/_components/Cursor";
-import UserToggle from "@/app/_components/UserToggle";
+import "@/styles/globals.css"
 import Header from "@/app/_components/Header";
 import {useEffect, useState} from "react";
 import Footer from "@/app/_components/Footer";
 import ProduktDolisty from "./produktDolisty";
-import Link from "next/link";
 
 
 
@@ -17,7 +14,7 @@ export default function Listaproduktow() {
     useEffect(() => {
         const sortToggle = document.querySelector('.sort-toggle') as HTMLElement;
         const sortContent = document.querySelector('.sort-content') as HTMLElement;
-        const sortArrow = sortToggle?.querySelector('svg');
+        const sortArrow = sortToggle.querySelector('svg')!;
 
         const toggleFilters = document.querySelector('.toggle-filters') as HTMLElement;
         const content = document.querySelector('.content') as HTMLElement;
@@ -34,15 +31,15 @@ export default function Listaproduktow() {
         lists.forEach(list => {
             list.addEventListener('click', () => {
                 const options = list.nextElementSibling as HTMLElement;
-                const svg = list.querySelector('svg');
+                const svg = list.querySelector('svg')!;
 
                 if (options && options.classList.contains('options')) {
                     if (options.style.maxHeight && options.style.maxHeight !== "0px") {
                         options.style.maxHeight = "0px";
-                        svg?.classList.remove('rotate');
+                        svg.classList.remove('rotate');
                     } else {
                         options.style.maxHeight = options.scrollHeight + "px";
-                        svg?.classList.add('rotate');
+                        svg.classList.add('rotate');
                     }
                 }
             });
@@ -70,12 +67,9 @@ export default function Listaproduktow() {
 
 
         return () => {
-            sortToggle?.removeEventListener('click', () => {
-            });
-            lists.forEach(list => list.removeEventListener('click', () => {
-            }));
-            toggleFilters?.removeEventListener('click', () => {
-            });
+            sortToggle?.removeEventListener('click', () => {});
+            lists.forEach(list => list.removeEventListener('click', () => {}));
+            toggleFilters?.removeEventListener('click', () => {});
         };
     }, []);
 
@@ -112,7 +106,7 @@ export default function Listaproduktow() {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    });
 
 
     return (
@@ -142,7 +136,7 @@ export default function Listaproduktow() {
         <hr/>
         <div className="container">
             <div className="header">
-                <h1>Men's Shoes & Sneakers</h1>
+                <h1>Men&apos;s Shoes & Sneakers</h1>
                 <div className="filters-header">
                     <ul>
                         <li className="toggle-filters">
@@ -296,9 +290,7 @@ export default function Listaproduktow() {
                         </div>
                     </div>
                 </div>
-                <div className="content-cards">
-                    <ProduktDolisty/>
-                </div>
+                <ProduktDolisty/>
             </div>
         </div>
         <Footer/>

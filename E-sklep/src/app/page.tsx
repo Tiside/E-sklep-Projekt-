@@ -6,42 +6,39 @@
 // import Cursor from "./_components/Cursor";
 
 import Image from "next/image";
-import Script from "next/script";
-import Link from "next/link";
 import TextCarousel from "@/app/_components/TextCarousel";
-import UserToggle from "@/app/_components/UserToggle";
 import Footer from "@/app/_components/Footer";
 import Header from "@/app/_components/Header";
 
 
 export default async function Home() {
-    function DisplayUserUi(): void {
-        const userPfp = document.querySelector('.user-pfp') as HTMLElement | null;
-        const login = document.querySelector('.bx-log-in') as HTMLElement | null;
-        const logout = document.querySelector('.bx-help-circle') as HTMLElement | null;
-        const settings = document.querySelector('.bx-cog') as HTMLElement | null;
+    // function DisplayUserUi(): void {
+    //     const userPfp = document.querySelector('.user-pfp') as HTMLElement | null;
+    //     const login = document.querySelector('.bx-log-in') as HTMLElement | null;
+    //     const logout = document.querySelector('.bx-help-circle') as HTMLElement | null;
+    //     const settings = document.querySelector('.bx-cog') as HTMLElement | null;
 
-        if (!userPfp || !login || !logout) return;
+    //     if (!userPfp || !login || !logout) return;
 
-        userPfp.classList.toggle('active');
+    //     userPfp.classList.toggle('active');
 
-        const isVisible = login.classList.contains('show') && logout.classList.contains('show');
+    //     const isVisible = login.classList.contains('show') && logout.classList.contains('show');
 
-        if (isVisible) {
-            login.classList.remove('show');
-            logout.classList.remove('show');
-        } else {
-            login.classList.add('show');
-            logout.classList.add('show');
-        }
-    }
+    //     if (isVisible) {
+    //         login.classList.remove('show');
+    //         logout.classList.remove('show');
+    //     } else {
+    //         login.classList.add('show');
+    //         logout.classList.add('show');
+    //     }
+    // }
 
     return (
         <>
-            <Script src="https://unpkg.com/scrollreveal"/>
+            {/* <Script src="https://unpkg.com/scrollreveal"/> */}
 
+            <Header/>
             <div className="header">
-                <Header/>
 
                 <div className="header-container">
                     <div className="side-bar">
@@ -222,8 +219,8 @@ export default async function Home() {
                             <p className="label">SUMMER READY</p>
                             <h3>Strength Takes Sweat</h3>
                             <div className="buttons">
-                                <a href="#">Shop Men's</a>
-                                <a href="#">Shop Women's</a>
+                                <a href="#">Shop Men&apos;s</a>
+                                <a href="#">Shop Women&apos;s</a>
                             </div>
                         </div>
                     </div>
@@ -246,8 +243,8 @@ export default async function Home() {
                                 <p>In Your Air Max Era</p>
                                 <h3>Max Out Your World</h3>
                                 <div className="buttons">
-                                    <a href="#">Shop Men's</a>
-                                    <a href="#">Shop Women's</a>
+                                    <a href="#">Shop Men&apos;s</a>
+                                    <a href="#">Shop Women&apos;s</a>
                                 </div>
                             </div>
                             <img

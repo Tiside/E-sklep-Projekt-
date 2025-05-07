@@ -1,8 +1,5 @@
-@tailwind components;
-@tailwind utilities;
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); */
-/*@import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,800, 800i, 900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 @font-face {
     font-family: 'Roboto';
@@ -79,7 +76,7 @@ i.bx, i.bxs, i.bxl {
 body {
     font-family: 'Poppins', sans-serif;
     font-family: Poppins;
-
+    overflow-x: hidden;
 }
 
 a {
@@ -88,21 +85,9 @@ a {
 }
 
 
-.header {
-    height: 1000px;
+body > .header {
     background-color: var(--red);
     position: relative;
-
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    background: transparent;
-    box-shadow: 0 0 1000px 300px rgba(255, 255, 255, 0.6);
 }
 
 .header .nav {

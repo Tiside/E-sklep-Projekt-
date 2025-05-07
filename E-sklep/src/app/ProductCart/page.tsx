@@ -157,7 +157,7 @@ export default function ProductCart() {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    });
 
 
     const scrollCarousel = (direction: number) => {
@@ -244,7 +244,7 @@ export default function ProductCart() {
                 <div className="product-details">
                     <div className="details-scroll">
                         <h1 className="product-title">Nike Air Jordan 1</h1>
-                        <p className="product-category">Men's Shoes</p>
+                        <p className="product-category">Men&apos;s Shoes</p>
                         <p className="code">9/10</p>
                         <p className="product-price">$190</p>
 
@@ -299,7 +299,7 @@ export default function ProductCart() {
 
                         <div className="shipping-info">
                             <p><strong>Shipping</strong>
-                                <br/> <br/> You'll see our shipping options at checkout.
+                                <br/> <br/> You&apos;ll see our shipping options at checkout.
                             </p>
                         </div>
 
@@ -350,29 +350,29 @@ export default function ProductCart() {
                         <img
                             src="https://drop-up.pl/cdn/shop/files/drop-up.pl-Jordan-1-Mid-SE-Ice-Blue-_2023_-1.png?v=1717151657"
                             alt="Jordan"/>
-                        <p><strong>Jordan Air 1</strong><br/><span>Men's Shoes</span><br/>$100.00</p>
+                        <p><strong>Jordan Air 1</strong><br/><span>Men&apos;s Shoes</span><br/>$100.00</p>
                     </div>
                     <div className="carousel-item">
                         <img
                             src="https://drop-up.pl/cdn/shop/files/drop-up.pl-Jordan-1-Mid-SE-Ice-Blue-_2023_-1.png?v=1717151657"
                             alt="Nike Solo"/>
-                        <p><strong>Nike Air Jordan 1</strong><br/><span>Men's Shoes</span><br/>$145.00</p>
+                        <p><strong>Nike Air Jordan 1</strong><br/><span>Men&apos;s Shoes</span><br/>$145.00</p>
                     </div>
                     <div className="carousel-item">
                         <img
                             src="https://static.nike.com/a/images/w_1280,q_auto,f_auto/55b488b9-7ffd-47a6-8192-049ec2fd702f/air-jordan-iv-black-cat-release-date.jpg"
                             alt="Nike Tech"/>
-                        <p><strong>Nike Air Jordan 4 Black Cat</strong><br/><span>Men's Shoes</span><br/>$130.00</p>
+                        <p><strong>Nike Air Jordan 4 Black Cat</strong><br/><span>Men&apos;s Shoes</span><br/>$130.00</p>
                     </div>
                     <div className="carousel-item">
                         <img src="https://owcastore.pl/wp-content/uploads/2023/06/dada3qw4q2-1.png" alt="Nike Tech"/>
-                        <p><strong>Nike Air Jordan 1 High</strong><br/><span>Men's Shoes</span><br/>$130.00</p>
+                        <p><strong>Nike Air Jordan 1 High</strong><br/><span>Men&apos;s Shoes</span><br/>$130.00</p>
                     </div>
                     <div className="carousel-item">
                         <img
                             src="https://drop-up.pl/cdn/shop/files/drop-up.pl-Air-Jordan-4-Retro-_Thunder_-_2023_-1.png?v=1717147908"
                             alt="Nike Tech"/>
-                        <p><strong>Nike Air Jordan 4 Thunder</strong><br/><span>Men's Shoes</span><br/>$130.00</p>
+                        <p><strong>Nike Air Jordan 4 Thunder</strong><br/><span>Men&apos;s Shoes</span><br/>$130.00</p>
                     </div>
                 </div>
             </div>
@@ -385,7 +385,7 @@ export default function ProductCart() {
                             alt="Selected Product"/>
                     </div>
                     <div className="hidden-info">
-                        <h4>Men's Shoes</h4>
+                        <h4>Men&apos;s Shoes</h4>
                         <h2>Nike Air Jordan 1</h2>
                         <h4>190.00$</h4>
                     </div>

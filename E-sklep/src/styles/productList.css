@@ -175,6 +175,7 @@ hr {
 
 .container .content {
     display: flex;
+    align-items: start;
 }
 
 .container .content {
@@ -557,7 +558,7 @@ hr {
 
 }
 
-.product-cart-info {
+.container-card .product-cart-info {
     position: absolute;
     bottom: -50px;
     z-index: 0;
@@ -573,7 +574,7 @@ hr {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.product-cart-info:hover {
+.container-card .product-cart-info:hover {
     background-color: #222;
     transform: translateY(-3px);
 }

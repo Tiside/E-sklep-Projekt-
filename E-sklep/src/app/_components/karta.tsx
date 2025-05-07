@@ -1,8 +1,6 @@
 "use client";
 import {useEffect} from "react";
-import Image from "next/image";
 import type {przedmiot} from "../types/koszyk";
-import Link from "next/link";
 import "@/styles/productList.css";
 
 
@@ -16,13 +14,14 @@ export default function Karta(props: przedmiot) {
                 localStorage.setItem('koszyk', '[]');
             }
     
-            let koszyk = JSON.parse(window.localStorage.getItem('koszyk')!);
+            const koszyk = JSON.parse(window.localStorage.getItem('koszyk')!);
     
             koszyk.push({
                 id: props.id,
                 name: props.name,
                 src: props.src,
-                count: props.count
+                count: props.count,
+                price: props.price
             });
     
             window.localStorage.setItem('koszyk', JSON.stringify(koszyk));
@@ -36,12 +35,12 @@ export default function Karta(props: przedmiot) {
         return () => {
             btn?.removeEventListener('click', sprawdzenie);
         };
-    }, [props.id]);
+    }, [props.id, props.name, props.src, props.count, props.price]);
 
 
 
     return (
-        <div className="content-cards">
+        
         <div key={props.id} className="container-card">
             <div className="card" data-color="yellow">
                 <div className="imgBx">
@@ -50,7 +49,7 @@ export default function Karta(props: przedmiot) {
                         alt={props.name}/>
                 </div>
                 <div className="contentBx">
-                    <h2>Nike Shoes</h2>
+                    <h2>{props.name}</h2>
                     <div className="size">
                         <h3>Size :</h3>
                         <span>7</span>
@@ -83,6 +82,6 @@ export default function Karta(props: przedmiot) {
                 </div>
             </div>
         </div>
-        </div>
+        
     );
 }

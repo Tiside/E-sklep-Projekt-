@@ -2,7 +2,6 @@
 'use client'
 import "../../styles/login.css";
 import {api} from "@/trpc/react";
-import {redirect} from "next/navigation";
 
 export default function Page() {
     const login = api.auth.login.useMutation();
@@ -19,7 +18,7 @@ export default function Page() {
             if(!localStorage.getItem("login")){
                 localStorage.setItem("login",response.userId)
             }
-            redirect('/')
+            window.location.href = '/';
         }
         console.log('Błąd')
     }

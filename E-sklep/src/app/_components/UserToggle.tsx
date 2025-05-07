@@ -9,7 +9,7 @@ export default function UserToggle() {
         const logout = document.querySelector('.bx-help-circle');
         const orders = document.querySelector('.orders');
 
-        if (!userPfp || !login || !logout) return;
+        if (!userPfp || !login || !logout || !orders) return;
 
         const toggleIcons = () => {
             userPfp.classList.toggle('active');

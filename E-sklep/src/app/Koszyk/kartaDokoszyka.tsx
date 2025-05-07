@@ -1,7 +1,6 @@
 'use client';
 
 import {useEffect, useState} from "react";
-import Karta from "@/app/_components/karta";
 import type {przedmiot} from "@/app/types/koszyk";
 import KartaKoszyk from "../_components/kartaKoszyk";
 
@@ -23,7 +22,7 @@ export default function KartaDoKoszyka() {
     }, []); // Runs only once when the component mounts
 
     return (
-        <div>
+        <div className="cart-like">
             {koszyk.map((p: przedmiot, index: number) => (
                 <KartaKoszyk key={index} id={p.id} name={p.name} src={p.src} price={p.price} count={p.count}/>
             ))}
