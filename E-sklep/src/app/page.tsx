@@ -42,9 +42,9 @@ export default async function Home() {
 
                 <div className="header-container">
                     <div className="side-bar">
-                        <img src="facebook-logo-24.png" alt="facebook-logo"/>
-                        <img src="instagram-logo-24.png" alt="instagram-logo"/>
-                        <img src="twitter-logo-24.png" alt="twitter-logo"/>
+                        <a href="https://www.facebook.com/"><img src="facebook-logo-24.png" alt="facebook-logo"/></a>
+                        <a href="https://www.instagram.com/"><img src="instagram-logo-24.png" alt="instagram-logo"/></a>
+                        <a href="https://x.com/"><img src="twitter-logo-24.png" alt="twitter-logo"/></a>
                     </div>
                     <div className="about">
                         <div className="about-text">
