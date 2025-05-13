@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Roboto';
     src: url('/fonts/Roboto-Variable.ttf') format('truetype');
@@ -79,6 +80,7 @@ hr {
 
 .container {
     margin: 20px;
+    width: 98%;
 }
 
 .container .header {
@@ -86,6 +88,7 @@ hr {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .container .header h1 {

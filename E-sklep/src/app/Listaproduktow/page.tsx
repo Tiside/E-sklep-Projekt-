@@ -1,7 +1,6 @@
 'use client'
 import "@/styles/productList.css";
 import "@/styles/header.css"
-import "@/styles/globals.css"
 import Header from "@/app/_components/Header";
 import {useEffect, useState} from "react";
 import Footer from "@/app/_components/Footer";

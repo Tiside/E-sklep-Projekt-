@@ -107,7 +107,8 @@ export default async function Home() {
                     </div>
                     <TextCarousel/>
                 </div>
-                <div className="body_items">
+            </div>
+            <div className="body_items">
                 <div className="item_1">
                     <img src="/fala.png" alt="Fala"/>
                 </div>
@@ -254,7 +255,6 @@ export default async function Home() {
                     </div>
                 </div>
             </section>
-            </div>
             <Footer/>
         </>
     );

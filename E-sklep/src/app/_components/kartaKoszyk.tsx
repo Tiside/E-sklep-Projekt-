@@ -7,6 +7,102 @@ import type { przedmiot } from "../types/koszyk";
 
 export default function KartaKoszyk(props:przedmiot) {
   useEffect(() => {
+
+      const changeSizePopup = document.querySelector(".change-size") as HTMLElement | null;
+      const changeColorPopup = document.querySelector(".change-color") as HTMLElement | null;
+
+      const sizeImg = changeSizePopup?.querySelector("img") as HTMLImageElement | null;
+      const colorImg = changeColorPopup?.querySelector("img") as HTMLImageElement | null;
+
+      const showPopup = (
+          popup: HTMLElement | null,
+          data: { name: string; category: string; price: string; image: string },
+          imgEl: HTMLImageElement | null
+      ) => {
+          if (!popup || !data) return;
+          const nameEl = popup.querySelector(".change-info h2") as HTMLElement | null;
+          const categoryEl = popup.querySelector(".change-info h4:nth-of-type(1)") as HTMLElement | null;
+          const priceEl = popup.querySelector(".change-info h4:nth-of-type(2)") as HTMLElement | null;
+
+          if (imgEl) imgEl.src = data.image;
+          if (nameEl) nameEl.textContent = data.name;
+          if (categoryEl) categoryEl.textContent = data.category;
+          if (priceEl) priceEl.textContent = data.price;
+
+          popup.style.display = "flex";
+          requestAnimationFrame(() => {
+              popup.classList.add("active");
+          });
+      };
+
+      const hidePopup = (popup: HTMLElement | null) => {
+          if (!popup) return;
+          popup.classList.remove("active");
+          setTimeout(() => {
+              popup.style.display = "none";
+          }, 300);
+      };
+
+      document.querySelectorAll(".cart-item").forEach(cart => {
+          const sizeBtn = cart.querySelector(".to-change-size");
+          const colorBtn = cart.querySelector(".to-change-color");
+          const name = cart.querySelector("h3")?.textContent?.trim() || "";
+          const category = cart.querySelector(".info-item p")?.textContent?.trim() || "";
+          const price = cart.querySelector(".price p")?.textContent?.trim() || "";
+          const img = cart.querySelector("img") as HTMLImageElement | null;
+
+          const data = {
+              name,
+              category,
+              price,
+              image: img?.src || "",
+          };
+
+          sizeBtn?.addEventListener("click", () => {
+              showPopup(changeSizePopup, data, sizeImg);
+          });
+
+          colorBtn?.addEventListener("click", () => {
+              showPopup(changeColorPopup, data, colorImg);
+          });
+      });
+
+      document.querySelectorAll(".like-item").forEach(like => {
+          const sizeBtn = like.querySelector(".to-change-size");
+          const colorBtn = like.querySelector(".to-change-color");
+          const name = like.querySelector("h3")?.textContent?.trim() || "";
+          const category = like.querySelector(".info-item p")?.textContent?.trim() || "";
+          const price = like.closest(".like-item-main")?.querySelector(".price p")?.textContent?.trim() || "";
+          const img = like.querySelector("img") as HTMLImageElement | null;
+
+          const data = {
+              name,
+              category,
+              price,
+              image: img?.src || "",
+          };
+
+          sizeBtn?.addEventListener("click", () => {
+              showPopup(changeSizePopup, data, sizeImg);
+          });
+
+          colorBtn?.addEventListener("click", () => {
+              showPopup(changeColorPopup, data, colorImg);
+          });
+      });
+
+      document.querySelectorAll(".close").forEach(btn => {
+          btn.addEventListener("click", () => {
+              hidePopup(changeSizePopup);
+              hidePopup(changeColorPopup);
+          });
+      });
+
+      return () => {
+          document.querySelectorAll(".to-change-size, .to-change-color, .close").forEach(el => {
+              el.replaceWith(el.cloneNode(true));
+          });
+      };
     // let btn = document.getElementById(`${props.id}`) as HTMLElement | null;
     let btn = document.querySelector(`.btnDelete[data-id="${props.id}"]`)
   
