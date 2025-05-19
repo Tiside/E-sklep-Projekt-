@@ -167,6 +167,11 @@ export default function ProductCart() {
             carousel.scrollBy({left: scrollAmount * direction, behavior: "smooth"});
         }
     };
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    const toggleFavorite = () => {
+        setIsFavorite(prev => !prev);
+    };
 
     return (
         <>
@@ -288,7 +293,7 @@ export default function ProductCart() {
                         </div>
 
                         <button className="add-to-bag">Add to Bag</button>
-                        <button className="favorite">
+                        <button onClick={toggleFavorite} className="favorite">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                                  stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round"

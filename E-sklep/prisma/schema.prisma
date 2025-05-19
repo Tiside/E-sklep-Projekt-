@@ -35,6 +35,7 @@ model ListaProduktow {
     src String
     ilosc Int
     cena Int
+    likes  Likes[]
 }
 
 model Users {
@@ -42,13 +43,8 @@ model Users {
     name          String    @unique
     email         String?   @unique
     password      String
+    likes  Likes[]
 }
-
-
-
-
-
-
 
 // model Post {
 //     id        Int      @id @default(autoincrement())
@@ -108,3 +104,14 @@ model Users {
 
 //     @@unique([identifier, token])
 // }
+
+model Likes {
+    id String @id @default(cuid())
+    userId String
+    productId Int
+
+    users Users @relation(fields: [userId], references:[id])
+    listaProduktow ListaProduktow @relation(fields: [productId], references:[id])
+
+    @@unique([userId, productId])
+}
